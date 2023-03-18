@@ -1,4 +1,5 @@
 import { validarCpf } from "./validaCpf.js"
+import { ehMaiorDeIdade } from "./validaIdade.js"
 
 const campoDoformulario = document.querySelectorAll("[required]")
 
@@ -10,6 +11,8 @@ function validaCampo(campo) {
         validarCpf(campo)
     }
 
-    
+    if(campo.name = 'aniversario') {
+        ehMaiorDeIdade(campo)
+    }
 }
 
