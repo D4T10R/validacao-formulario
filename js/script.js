@@ -2,6 +2,23 @@ import { validarCpf } from "./validaCpf.js"
 import { ehMaiorDeIdade } from "./validaIdade.js"
 
 const campoDoformulario = document.querySelectorAll("[required]")
+const formulario = document.querySelector("[data-formulario]")
+
+formulario.addEventListener("submit", (event) => {
+    event.preventDefault()
+
+    const listaCampos = {
+        "nome": event.target.elements["nome"].value,
+        "email": event.target.elements["email"].value,
+        "rg": event.target.elements["rg"].value,
+        "cpf": event.target.elements["cpf"].value,
+        "aniversario": event.target.elements["aniversario"].value
+    }
+
+    localStorage.setItem("cadastro", listaCampos)
+
+    window.location.href = "./abrir-conta-form-2.html"
+})
 
 campoDoformulario.forEach((campo) => { 
     campo.addEventListener("blur", () => validaCampo(campo))
