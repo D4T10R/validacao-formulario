@@ -2,9 +2,7 @@ export function validarCpf(campo) {
     const cpf = campo.value.replace(/\.|-/g, "")
     console.log(cpf)
     if (validaNumeroRepetidos(cpf) || validaUltimoDigito(cpf) || validaPenultimoDigito(cpf)) {
-        console.log("CPF não existe")
-    } else {
-        console.log("EXISTE!!")
+        campo.setCustomValidity('Cpf não existe')
     }
 }
 
